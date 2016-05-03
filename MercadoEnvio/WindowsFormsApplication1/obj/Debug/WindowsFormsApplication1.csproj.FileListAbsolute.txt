@@ -7,3 +7,6 @@ C:\Users\nico\Documents\Facultad\gestion de datos 2016\Trabajo Practico\Aplicaci
 C:\Users\nico\Documents\Facultad\gestion de datos 2016\Trabajo Practico\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 C:\Users\nico\Documents\Facultad\gestion de datos 2016\Trabajo Practico\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\nico\Documents\Facultad\gestion de datos 2016\Trabajo Practico\Aplicacion Desktop\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
