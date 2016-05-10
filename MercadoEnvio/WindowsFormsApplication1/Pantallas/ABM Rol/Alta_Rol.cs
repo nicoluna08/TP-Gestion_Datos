@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication1
+namespace MercadoEnvio.ABM_Rol
 {
-    public partial class Form1 : Form
+    public partial class Alta_Rol : Form
     {
-        public Form1()
+        public Alta_Rol()
         {
             InitializeComponent();
         }

@@ -7,8 +7,8 @@
     <ProjectGuid>{DC2F8B5F-0A5A-49AA-A29A-D0DEB02B45E0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WindowsFormsApplication1</RootNamespace>
-    <AssemblyName>WindowsFormsApplication1</AssemblyName>
+    <RootNamespace>MercadoEnvio</RootNamespace>
+    <AssemblyName>MercadoEnvio</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,11 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pantallas\ABM Rol\Form1.cs">
+    <Compile Include="Pantallas\ABM Rol\Alta_Rol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\ABM Rol\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Pantallas\ABM Rol\Alta_Rol.Designer.cs">
+      <DependentUpon>Alta_Rol.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\ABM Rubro\Form1.cs">
       <SubType>Form</SubType>
@@ -87,11 +87,11 @@
     <Compile Include="Pantallas\Facturas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Menu_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Menu_Principal.Designer.cs">
+      <DependentUpon>Menu_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Generar Publicación\Form1.cs">
       <SubType>Form</SubType>
@@ -113,6 +113,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Menu_Principal.resx">
+      <DependentUpon>Menu_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\ABM Rol\Alta_Rol.resx">
+      <DependentUpon>Alta_Rol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -121,6 +127,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -10,3 +10,12 @@ C:\Users\nico\Documents\Facultad\gestion de datos 2016\Trabajo Practico\Aplicaci
 C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
 C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ABM_Rol.Alta_Rol.resources
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Menu_Principal.resources
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\bin\Debug\Mercado.exe.config
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\bin\Debug\MercadoEnvio.exe.config
