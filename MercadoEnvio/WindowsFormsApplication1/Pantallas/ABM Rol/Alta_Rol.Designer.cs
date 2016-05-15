@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.Txt_Nombre = new System.Windows.Forms.TextBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.chBoxFuncionalidades = new System.Windows.Forms.CheckedListBox();
             this.Btn_Grabar = new System.Windows.Forms.Button();
             this.Btn_Salir = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -53,10 +53,10 @@
             this.Txt_Nombre.Size = new System.Drawing.Size(163, 20);
             this.Txt_Nombre.TabIndex = 1;
             // 
-            // checkedListBox1
+            // chBoxFuncionalidades
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.chBoxFuncionalidades.FormattingEnabled = true;
+            this.chBoxFuncionalidades.Items.AddRange(new object[] {
             "1. Login y seguridad",
             "2. ABM de Rol",
             "3. ABM de Usuarios",
@@ -68,10 +68,10 @@
             "9. Calificar al Vendedor",
             "10. Consulta de facturas realizadas al vendedor",
             "11. Listado Estadístico"});
-            this.checkedListBox1.Location = new System.Drawing.Point(25, 79);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(321, 184);
-            this.checkedListBox1.TabIndex = 2;
+            this.chBoxFuncionalidades.Location = new System.Drawing.Point(25, 79);
+            this.chBoxFuncionalidades.Name = "chBoxFuncionalidades";
+            this.chBoxFuncionalidades.Size = new System.Drawing.Size(321, 184);
+            this.chBoxFuncionalidades.TabIndex = 2;
             // 
             // Btn_Grabar
             // 
@@ -81,6 +81,7 @@
             this.Btn_Grabar.TabIndex = 3;
             this.Btn_Grabar.Text = "&Grabar";
             this.Btn_Grabar.UseVisualStyleBackColor = true;
+            this.Btn_Grabar.Click += new System.EventHandler(this.Btn_Grabar_Click);
             // 
             // Btn_Salir
             // 
@@ -107,7 +108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(479, 279);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.chBoxFuncionalidades);
             this.Controls.Add(this.Txt_Nombre);
             this.Controls.Add(this.label1);
             this.Name = "Alta_Rol";
@@ -122,7 +123,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Txt_Nombre;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox chBoxFuncionalidades;
         private System.Windows.Forms.Button Btn_Grabar;
         private System.Windows.Forms.Button Btn_Salir;
         private System.Windows.Forms.GroupBox groupBox1;

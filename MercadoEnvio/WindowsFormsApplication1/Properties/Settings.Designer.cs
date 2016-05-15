@@ -26,7 +26,7 @@ namespace MercadoEnvio.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NICO-PC;Initial Catalog=GD1C2016;User ID=gd")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NICO-PC;Initial Catalog=GD1C2016;User ID=gd;Pwd=gd2016")]
         public string ConectionString {
             get {
                 return ((string)(this["ConectionString"]));

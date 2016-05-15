@@ -21,7 +21,15 @@ namespace MercadoEnvio
         {
             MercadoEnvio.ABM_Rol.Alta_Rol RolA = new MercadoEnvio.ABM_Rol.Alta_Rol();
             RolA.ShowDialog();
+
       
+
+        }
+
+        private void modificarRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MercadoEnvio.Pantallas.ABM_Rol.Modificar_Rol RolM = new MercadoEnvio.Pantallas.ABM_Rol.Modificar_Rol();
+            RolM.ShowDialog();
 
         }
     }

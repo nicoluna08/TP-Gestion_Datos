@@ -44,11 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Negocio\Rol.cs" />
     <Compile Include="Pantallas\ABM Rol\Alta_Rol.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pantallas\ABM Rol\Alta_Rol.Designer.cs">
       <DependentUpon>Alta_Rol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\ABM Rol\Modificar_Rol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\ABM Rol\Modificar_Rol.Designer.cs">
+      <DependentUpon>Modificar_Rol.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\ABM Rubro\Form1.cs">
       <SubType>Form</SubType>
@@ -118,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\ABM Rol\Alta_Rol.resx">
       <DependentUpon>Alta_Rol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\ABM Rol\Modificar_Rol.resx">
+      <DependentUpon>Modificar_Rol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

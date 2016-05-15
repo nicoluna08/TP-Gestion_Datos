@@ -7,3 +7,5 @@ C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplica
 C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvio.csproj.GenerateResource.Cache
 C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvio.exe
 C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvio.pdb
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvio.csprojResolveAssemblyReference.cache
+C:\Users\nico\Documents\GitHub\TP-Gestion_Datos\MercadoEnvio\WindowsFormsApplication1\obj\Debug\MercadoEnvio.Pantallas.ABM_Rol.Modificar_Rol.resources
