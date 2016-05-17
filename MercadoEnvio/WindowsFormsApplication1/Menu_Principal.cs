@@ -15,15 +15,8 @@ namespace MercadoEnvio
         public Menu_Principal()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MercadoEnvio.ABM_Rol.Alta_Rol RolA = new MercadoEnvio.ABM_Rol.Alta_Rol();
-            RolA.ShowDialog();
-
-      
-
+            SQLHelper.SQLHelper.ConnectionValue = Properties.Settings.Default.ConectionString;
+           
         }
 
         private void modificarRolToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,6 +24,12 @@ namespace MercadoEnvio
             MercadoEnvio.Pantallas.ABM_Rol.Modificar_Rol RolM = new MercadoEnvio.Pantallas.ABM_Rol.Modificar_Rol();
             RolM.ShowDialog();
 
+        }
+
+        private void altaRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MercadoEnvio.ABM_Rol.Alta_Rol RolA = new MercadoEnvio.ABM_Rol.Alta_Rol();
+            RolA.ShowDialog();
         }
     }
 }

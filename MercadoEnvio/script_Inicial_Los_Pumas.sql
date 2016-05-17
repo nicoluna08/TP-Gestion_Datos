@@ -11,6 +11,10 @@ BEGIN
 		DROP TABLE [Los_Pumas].[Rol]
 		IF OBJECT_ID('Los_Pumas.Rol_Usuario') IS NOT NULL
 		DROP TABLE [Los_Pumas].[Rol_Usuario]
+		
+		--Procedimientos
+		IF OBJECT_ID('Los_Pumas.Roles_sel') IS NOT NULL
+		DROP PROCEDURE [Los_Pumas].[Roles_Sel]
 
 END
 GO
@@ -41,6 +45,15 @@ CREATE TABLE [Los_Pumas].[Rol_Usuario]
     )
 GO
 
+
+
+CREATE PROCEDURE [Los_Pumas].[Roles_Sel]
+as
+begin
+ select Rol_id, Nombre from Los_Pumas.Rol
+
+end
+go
 
     INSERT INTO [Los_Pumas].[Rol]
 

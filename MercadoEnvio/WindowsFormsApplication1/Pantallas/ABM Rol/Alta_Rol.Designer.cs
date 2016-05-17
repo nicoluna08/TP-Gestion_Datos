@@ -91,6 +91,7 @@
             this.Btn_Salir.TabIndex = 4;
             this.Btn_Salir.Text = "&Salir";
             this.Btn_Salir.UseVisualStyleBackColor = true;
+            this.Btn_Salir.Click += new System.EventHandler(this.Btn_Salir_Click);
             // 
             // groupBox1
             // 

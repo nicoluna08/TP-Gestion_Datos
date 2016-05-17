@@ -55,6 +55,7 @@
             this.Btn_Grabar.TabIndex = 3;
             this.Btn_Grabar.Text = "&Grabar";
             this.Btn_Grabar.UseVisualStyleBackColor = true;
+            this.Btn_Grabar.Click += new System.EventHandler(this.Btn_Grabar_Click);
             // 
             // Btn_Salir
             // 
@@ -64,6 +65,7 @@
             this.Btn_Salir.TabIndex = 4;
             this.Btn_Salir.Text = "&Salir";
             this.Btn_Salir.UseVisualStyleBackColor = true;
+            this.Btn_Salir.Click += new System.EventHandler(this.Btn_Salir_Click);
             // 
             // chBoxFuncionalidades
             // 
@@ -101,6 +103,7 @@
             this.Cmb_Nombre.Name = "Cmb_Nombre";
             this.Cmb_Nombre.Size = new System.Drawing.Size(181, 21);
             this.Cmb_Nombre.TabIndex = 10;
+            this.Cmb_Nombre.SelectedIndexChanged += new System.EventHandler(this.Cmb_Nombre_SelectedIndexChanged);
             // 
             // Modificar_Rol
             // 

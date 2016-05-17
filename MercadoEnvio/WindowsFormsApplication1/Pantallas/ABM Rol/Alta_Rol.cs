@@ -46,5 +46,10 @@ namespace MercadoEnvio.ABM_Rol
             }
 
         }
+
+        private void Btn_Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

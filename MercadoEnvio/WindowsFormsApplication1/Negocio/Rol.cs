@@ -28,14 +28,14 @@ namespace MercadoEnvio.Negocio
             get { return _rolNombre; }
             set { _rolNombre = value; }
         }
-
+       /*
         private List<string> _Funcionalidad;
         public List<string> Funcionalidad
         {
             get { return _Funcionalidad; }
             set { _Funcionalidad = value; }
         }
-
+       */
         private int _estadoID;
         public int EstadoID
         {
@@ -54,6 +54,137 @@ namespace MercadoEnvio.Negocio
 
         #region metodos
 
+        public DataTable Roles()
+        {
+            DataTable data = new DataTable();
+            SQLHelper.SQLHelper.ConnectionValue = Properties.Settings.Default.ConectionString;
+            SQLHelper.SQLHelper.CreateObjects(true);
+
+            try
+            {
+                data = SQLHelper.SQLHelper.SQLHelper_ExecuteReader("Los_Pumas.Roles_sel");
+                return data;
+            }
+            catch (Exception ex)
+            {
+                SQLHelper.SQLHelper.RollBackTransction();
+                throw ex;
+            }
+            finally
+            {
+                SQLHelper.SQLHelper.ClearObjects();
+            }
+        }
+
+        public bool altaRol(string nombre, int estado)
+        {
+            if (!object.Equals(parameters, null))
+                parameters.Clear();
+            else
+                parameters = new List<SqlParameter>();
+
+
+
+            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 150);
+            parameter.Value = nombre;
+            parameters.Add(parameter);
+
+
+            parameter = new SqlParameter("@estado", SqlDbType.Bit);
+            parameter.Value = estado;
+            parameters.Add(parameter);
+
+            SQLHelper.SQLHelper.CreateObjects(true);
+            try
+            {
+                result = SQLHelper.SQLHelper.SQLHelper_ExecuteNonQuery("Los_Pumas.Roles_Ins", parameters);
+                SQLHelper.SQLHelper.CommitTransction();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                SQLHelper.SQLHelper.RollBackTransction();
+                throw ex;
+            }
+            finally
+            {
+                SQLHelper.SQLHelper.ClearObjects();
+            }
+        }
+
+        public bool altaFuncionalidadxRol(string nombre, string funcionalidad)
+        {
+            if (!object.Equals(parameters, null))
+                parameters.Clear();
+            else
+                parameters = new List<SqlParameter>();
+
+            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 150);
+            parameter.Value = nombre;
+            parameters.Add(parameter);
+
+            parameter = new SqlParameter("@funcionalidad", SqlDbType.VarChar, 200);
+            parameter.Value = funcionalidad;
+            parameters.Add(parameter);
+
+            SQLHelper.SQLHelper.CreateObjects(true);
+            try
+            {
+                result = SQLHelper.SQLHelper.SQLHelper_ExecuteNonQuery("Los_Pumas.FuncionalidadxRoles_Ins", parameters);
+                SQLHelper.SQLHelper.CommitTransction();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                SQLHelper.SQLHelper.RollBackTransction();
+                throw ex;
+            }
+            finally
+            {
+                SQLHelper.SQLHelper.ClearObjects();
+            }
+        }
+
+        public bool bajaFuncionalidadxRol(string nombre, string funcionalidad)
+        {
+            if (!object.Equals(parameters, null))
+                parameters.Clear();
+            else
+                parameters = new List<SqlParameter>();
+
+            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 150);
+            parameter.Value = nombre;
+            parameters.Add(parameter);
+
+            parameter = new SqlParameter("@funcionalidad", SqlDbType.VarChar, 200);
+            parameter.Value = funcionalidad;
+            parameters.Add(parameter);
+
+            SQLHelper.SQLHelper.CreateObjects(true);
+            try
+            {
+                result = SQLHelper.SQLHelper.SQLHelper_ExecuteNonQuery("Los_Pumas.FuncionalidadxRoles_Del", parameters);
+                SQLHelper.SQLHelper.CommitTransction();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                SQLHelper.SQLHelper.RollBackTransction();
+                throw ex;
+            }
+            finally
+            {
+                SQLHelper.SQLHelper.ClearObjects();
+            }
+        }
+
+
+       // revisar de aca para abajo
+
+       /*
         public DataTable buscarRol(string nombre, string funcionalidad, string estado)
         {
             parameters = new List<SqlParameter>();
@@ -99,78 +230,11 @@ namespace MercadoEnvio.Negocio
                 SQLHelper.SQLHelper.ClearObjects();
             }
         }
+        */
 
-        public bool altaRol(string nombre, int estado)
-        {
-            if (!object.Equals(parameters, null))
-                parameters.Clear();
-            else
-                parameters = new List<SqlParameter>();
 
-            
-
-            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 150);
-            parameter.Value = nombre;
-            parameters.Add(parameter);
-            
-           
-            parameter = new SqlParameter("@estado", SqlDbType.Int);
-            parameter.Value = estado;
-            parameters.Add(parameter);
-
-            SQLHelper.SQLHelper.CreateObjects(true);
-            try
-            {
-                result = SQLHelper.SQLHelper.SQLHelper_ExecuteNonQuery("ALLBLACKS.Rol_Ins", parameters);
-                SQLHelper.SQLHelper.CommitTransction();
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                SQLHelper.SQLHelper.RollBackTransction();
-                throw ex;
-            }
-            finally
-            {
-                SQLHelper.SQLHelper.ClearObjects();
-            }
-        }
-
-        public bool altaFuncionalidadxRol(string nombre, string funcionalidad)
-        {
-            if (!object.Equals(parameters, null))
-                parameters.Clear();
-            else
-                parameters = new List<SqlParameter>();
-
-            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 150);
-            parameter.Value = nombre;
-            parameters.Add(parameter);
-
-            parameter = new SqlParameter("@funcionalidad", SqlDbType.VarChar, 200);
-            parameter.Value = funcionalidad;
-            parameters.Add(parameter);
-
-            SQLHelper.SQLHelper.CreateObjects(true);
-            try
-            {
-                result = SQLHelper.SQLHelper.SQLHelper_ExecuteNonQuery("ALLBLACKS.FuncionalidadxRol_Ins", parameters);
-                SQLHelper.SQLHelper.CommitTransction();
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                SQLHelper.SQLHelper.RollBackTransction();
-                throw ex;
-            }
-            finally
-            {
-                SQLHelper.SQLHelper.ClearObjects();
-            }
-        }
-
+       
+       
         public bool baja(string nombre)
         {
             if (!object.Equals(parameters, null))
@@ -201,40 +265,7 @@ namespace MercadoEnvio.Negocio
             }
         }
 
-        public bool bajaFuncionalidadxRol(string nombre, string funcionalidad)
-        {
-            if (!object.Equals(parameters, null))
-                parameters.Clear();
-            else
-                parameters = new List<SqlParameter>();
-
-            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 150);
-            parameter.Value = nombre;
-            parameters.Add(parameter);
-
-            parameter = new SqlParameter("@funcionalidad", SqlDbType.VarChar, 200);
-            parameter.Value = funcionalidad;
-            parameters.Add(parameter);
-
-            SQLHelper.SQLHelper.CreateObjects(true);
-            try
-            {
-                result = SQLHelper.SQLHelper.SQLHelper_ExecuteNonQuery("ALLBLACKS.FuncionalidadxRol_Del", parameters);
-                SQLHelper.SQLHelper.CommitTransction();
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                SQLHelper.SQLHelper.RollBackTransction();
-                throw ex;
-            }
-            finally
-            {
-                SQLHelper.SQLHelper.ClearObjects();
-            }
-        }
-
+ 
         public bool modificacion(string nombre, string funcionalidad, string estado)
         {
             if (!object.Equals(parameters, null))
@@ -290,7 +321,7 @@ namespace MercadoEnvio.Negocio
 
             try
             {
-                data = SQLHelper.SQLHelper.SQLHelper_ExecuteReader("ALLBLACKS.FuncionalidadxRol_sel", parameters);
+                data = SQLHelper.SQLHelper.SQLHelper_ExecuteReader("Los_Pumas.FuncionalidadxRoles_sel", parameters);
                 return data;
             }
             catch (Exception ex)
@@ -335,28 +366,6 @@ namespace MercadoEnvio.Negocio
             try
             {
                 data = SQLHelper.SQLHelper.SQLHelper_ExecuteReader("ALLBLACKS.RolEstado_sel");
-                return data;
-            }
-            catch (Exception ex)
-            {
-                SQLHelper.SQLHelper.RollBackTransction();
-                throw ex;
-            }
-            finally
-            {
-                SQLHelper.SQLHelper.ClearObjects();
-            }
-        }
-
-        public DataTable Roles()
-        {
-            DataTable data = new DataTable();
-            SQLHelper.SQLHelper.ConnectionValue = Properties.Settings.Default.ConectionString;
-            SQLHelper.SQLHelper.CreateObjects(true);
-
-            try
-            {
-                data = SQLHelper.SQLHelper.SQLHelper_ExecuteReader("Los_Pumas.Roles_sel");
                 return data;
             }
             catch (Exception ex)
