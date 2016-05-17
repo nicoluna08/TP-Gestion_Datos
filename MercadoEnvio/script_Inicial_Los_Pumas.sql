@@ -11,11 +11,26 @@ BEGIN
 		DROP TABLE [Los_Pumas].[Rol]
 		IF OBJECT_ID('Los_Pumas.Rol_Usuario') IS NOT NULL
 		DROP TABLE [Los_Pumas].[Rol_Usuario]
+		IF OBJECT_ID('Los_Pumas.FuncionalidadxRol') IS NOT NULL
+		DROP TABLE [Los_Pumas].[FuncionalidadxRol]
 		
 		--Procedimientos
 		IF OBJECT_ID('Los_Pumas.Roles_sel') IS NOT NULL
 		DROP PROCEDURE [Los_Pumas].[Roles_Sel]
-
+		IF OBJECT_ID('Los_Pumas.Roles_Ins') IS NOT NULL
+		DROP PROCEDURE [Los_Pumas].[Roles_Ins]
+		IF OBJECT_ID('Los_Pumas.FuncionalidadxRoles_Ins') IS NOT NULL
+		DROP PROCEDURE [Los_Pumas].[FuncionalidadxRoles_Ins]
+		IF OBJECT_ID('Los_Pumas.FuncionalidadxRoles_Del') IS NOT NULL
+		DROP PROCEDURE [Los_Pumas].[FuncionalidadxRoles_Del]
+		IF OBJECT_ID('Los_Pumas.FuncionalidadxRoles_Sel') IS NOT NULL
+		DROP PROCEDURE [Los_Pumas].[FuncionalidadxRoles_Sel]
+		IF OBJECT_ID('Los_Pumas.Roles_Upd') IS NOT NULL
+		DROP PROCEDURE [Los_Pumas].[Roles_Upd]
+		IF OBJECT_ID('Los_Pumas.Roles_Baja') IS NOT NULL
+		DROP PROCEDURE [Los_Pumas].[Roles_Baja]
+		IF OBJECT_ID('Los_Pumas.Roles_Habilitado') IS NOT NULL
+		DROP PROCEDURE [Los_Pumas].[Roles_Habilitado]
 END
 GO
 
@@ -45,6 +60,12 @@ CREATE TABLE [Los_Pumas].[Rol_Usuario]
     )
 GO
 
+CREATE TABLE [Los_Pumas].[FuncionalidadxRol]
+	(
+	 [Rol_Nombre]	nvarchar(150)
+	,[Funcionalidad]	nvarchar(200)
+    )
+GO
 
 
 CREATE PROCEDURE [Los_Pumas].[Roles_Sel]
@@ -54,6 +75,76 @@ begin
 
 end
 go
+
+
+CREATE PROCEDURE [Los_Pumas].[Roles_Ins]
+@nombre nvarchar(150),
+@estado bit
+as
+begin
+ insert into Los_Pumas.Rol values (@nombre,@estado,'0')
+
+end
+go
+
+CREATE PROCEDURE [Los_Pumas].[FuncionalidadxRoles_Ins]
+@nombre nvarchar(150),
+@funcionalidad nvarchar(200)
+as
+begin
+ insert into Los_Pumas.FuncionalidadxRol values (@nombre,@funcionalidad)
+
+end
+go
+
+CREATE PROCEDURE [Los_Pumas].[FuncionalidadxRoles_Del]
+@nombre nvarchar(150),
+@funcionalidad nvarchar(200)
+as
+begin
+ delete from Los_Pumas.FuncionalidadxRol where  Rol_Nombre =@nombre and Funcionalidad = @funcionalidad
+
+end
+go
+
+CREATE PROCEDURE [Los_Pumas].[FuncionalidadxRoles_Sel]
+@nombre nvarchar(150)
+as
+begin
+ select Rol_Nombre , Funcionalidad from Los_Pumas.FuncionalidadxRol where Rol_Nombre =  @nombre 
+
+end
+go
+
+CREATE PROCEDURE [Los_Pumas].[Roles_Upd]
+@nombre nvarchar(150),
+@nombreAct nvarchar(150),
+@inhabilitado bit,
+@baja bit
+
+as
+begin
+ update Los_Pumas.Rol set Nombre = @nombreAct, Habilitado = @inhabilitado, Baja = @baja where Nombre = @nombre
+end
+go
+
+CREATE PROCEDURE [Los_Pumas].[Roles_Baja]
+@nombre nvarchar(150)
+as
+begin
+ select Baja from  Los_Pumas.Rol where Nombre = @nombre
+end
+go
+
+CREATE PROCEDURE [Los_Pumas].[Roles_Habilitado]
+@nombre nvarchar(150)
+as
+begin
+ select Habilitado from  Los_Pumas.Rol where Nombre = @nombre
+end
+go
+
+
 
     INSERT INTO [Los_Pumas].[Rol]
 

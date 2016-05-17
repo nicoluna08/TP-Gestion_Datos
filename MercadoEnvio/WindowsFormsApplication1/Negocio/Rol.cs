@@ -181,6 +181,177 @@ namespace MercadoEnvio.Negocio
             }
         }
 
+        public DataTable FuncionalidadesXRol(string nombre)
+        {
+            DataTable data = new DataTable();
+            SQLHelper.SQLHelper.ConnectionValue = Properties.Settings.Default.ConectionString;
+            SQLHelper.SQLHelper.CreateObjects(true);
+
+            if (!object.Equals(parameters, null))
+                parameters.Clear();
+            else
+                parameters = new List<SqlParameter>();
+
+            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 150);
+            parameter.Value = nombre;
+            parameters.Add(parameter);
+
+            try
+            {
+                data = SQLHelper.SQLHelper.SQLHelper_ExecuteReader("Los_Pumas.FuncionalidadxRoles_sel", parameters);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                SQLHelper.SQLHelper.RollBackTransction();
+                throw ex;
+            }
+            finally
+            {
+                SQLHelper.SQLHelper.ClearObjects();
+            }
+        }
+
+        public bool modificacion(string nombre, string NombreAct, Boolean habilitado, Boolean baja)
+        {
+            if (!object.Equals(parameters, null))
+                parameters.Clear();
+            else
+                parameters = new List<SqlParameter>();
+
+            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 150);
+            parameter.Value = nombre;
+            parameters.Add(parameter);
+
+            parameter = new SqlParameter("@nombreAct", SqlDbType.VarChar, 150);
+            parameter.Value = NombreAct;
+            parameters.Add(parameter);
+
+            parameter = new SqlParameter("@inhabilitado", SqlDbType.Bit);
+            parameter.Value = habilitado;
+            parameters.Add(parameter);
+
+            parameter = new SqlParameter("@baja", SqlDbType.Bit);
+            parameter.Value = baja;
+            parameters.Add(parameter);
+
+
+            SQLHelper.SQLHelper.CreateObjects(true);
+            try
+            {
+                result = SQLHelper.SQLHelper.SQLHelper_ExecuteNonQuery("Los_Pumas.Roles_Upd", parameters);
+                SQLHelper.SQLHelper.CommitTransction();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                SQLHelper.SQLHelper.RollBackTransction();
+                throw ex;
+            }
+            finally
+            {
+                SQLHelper.SQLHelper.ClearObjects();
+            }
+        }
+
+
+        public bool baja(string nombre)
+        {
+            DataTable data = new DataTable();
+            Boolean aux;
+            aux = false;
+            SQLHelper.SQLHelper.ConnectionValue = Properties.Settings.Default.ConectionString;
+            SQLHelper.SQLHelper.CreateObjects(true);
+
+            if (!object.Equals(parameters, null))
+                parameters.Clear();
+            else
+                parameters = new List<SqlParameter>();
+
+            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 150);
+            parameter.Value = nombre;
+            parameters.Add(parameter);
+
+            SQLHelper.SQLHelper.CreateObjects(true);
+            try
+            {
+                data = SQLHelper.SQLHelper.SQLHelper_ExecuteReader("Los_Pumas.Roles_Baja", parameters);
+
+                foreach (DataRow valores in data.Rows)
+                {
+                    if (valores[0].ToString().ToLower() == "true")
+                        aux = true;
+                    else
+                        aux = false;
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                SQLHelper.SQLHelper.RollBackTransction();
+                throw ex;
+            }
+            finally
+            {
+                SQLHelper.SQLHelper.ClearObjects();
+            }
+            return aux;
+
+        }
+
+
+        public bool habilitado(string nombre)
+        {
+            DataTable data = new DataTable();
+            Boolean aux;
+            aux = false;
+            SQLHelper.SQLHelper.ConnectionValue = Properties.Settings.Default.ConectionString;
+            SQLHelper.SQLHelper.CreateObjects(true);
+
+            if (!object.Equals(parameters, null))
+                parameters.Clear();
+            else
+                parameters = new List<SqlParameter>();
+
+            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 150);
+            parameter.Value = nombre;
+            parameters.Add(parameter);
+
+            SQLHelper.SQLHelper.CreateObjects(true);
+            try
+            {
+                data = SQLHelper.SQLHelper.SQLHelper_ExecuteReader("Los_Pumas.Roles_Habilitado", parameters);
+
+                foreach (DataRow valores in data.Rows)
+                {
+                    if (valores[0].ToString().ToLower() == "true")
+                        aux = true;
+                    else
+                        aux = false;
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                SQLHelper.SQLHelper.RollBackTransction();
+                throw ex;
+            }
+            finally
+            {
+                SQLHelper.SQLHelper.ClearObjects();
+            }
+            return aux;
+
+        }
+
+
+
+
 
        // revisar de aca para abajo
 
@@ -235,106 +406,8 @@ namespace MercadoEnvio.Negocio
 
        
        
-        public bool baja(string nombre)
-        {
-            if (!object.Equals(parameters, null))
-                parameters.Clear();
-            else
-                parameters = new List<SqlParameter>();
-
-            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 150);
-            parameter.Value = nombre;
-            parameters.Add(parameter);
-
-            SQLHelper.SQLHelper.CreateObjects(true);
-            try
-            {
-                result = SQLHelper.SQLHelper.SQLHelper_ExecuteNonQuery("ALLBLACKS.Rol_Del", parameters);
-                SQLHelper.SQLHelper.CommitTransction();
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                SQLHelper.SQLHelper.RollBackTransction();
-                throw ex;
-            }
-            finally
-            {
-                SQLHelper.SQLHelper.ClearObjects();
-            }
-        }
-
  
-        public bool modificacion(string nombre, string funcionalidad, string estado)
-        {
-            if (!object.Equals(parameters, null))
-                parameters.Clear();
-            else
-                parameters = new List<SqlParameter>();
-
-            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 150);
-            parameter.Value = nombre;
-            parameters.Add(parameter);
-
-            parameter = new SqlParameter("@funcionalidad", SqlDbType.VarChar, 200);
-            parameter.Value = funcionalidad;
-            parameters.Add(parameter);
-
-            parameter = new SqlParameter("@estado", SqlDbType.VarChar, 50);
-            parameter.Value = estado;
-            parameters.Add(parameter);
-
-            SQLHelper.SQLHelper.CreateObjects(true);
-            try
-            {
-                result = SQLHelper.SQLHelper.SQLHelper_ExecuteNonQuery("ALLBLACKS.Rol_Upd", parameters);
-                SQLHelper.SQLHelper.CommitTransction();
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                SQLHelper.SQLHelper.RollBackTransction();
-                throw ex;
-            }
-            finally
-            {
-                SQLHelper.SQLHelper.ClearObjects();
-            }
-        }
-
-        public DataTable FuncionalidadesXRol(string nombre)
-        {
-            DataTable data = new DataTable();
-            SQLHelper.SQLHelper.ConnectionValue = Properties.Settings.Default.ConectionString;
-            SQLHelper.SQLHelper.CreateObjects(true);
-
-            if (!object.Equals(parameters, null))
-                parameters.Clear();
-            else
-                parameters = new List<SqlParameter>();
-
-            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 150);
-            parameter.Value = nombre;
-            parameters.Add(parameter);
-
-            try
-            {
-                data = SQLHelper.SQLHelper.SQLHelper_ExecuteReader("Los_Pumas.FuncionalidadxRoles_sel", parameters);
-                return data;
-            }
-            catch (Exception ex)
-            {
-                SQLHelper.SQLHelper.RollBackTransction();
-                throw ex;
-            }
-            finally
-            {
-                SQLHelper.SQLHelper.ClearObjects();
-            }
-        }
-
+ 
         public DataTable Funcionalidades()
         {
             DataTable data = new DataTable();

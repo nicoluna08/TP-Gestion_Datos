@@ -13,7 +13,7 @@ namespace MercadoEnvio.Pantallas.ABM_Rol
     public partial class Modificar_Rol : Form
     {
         private Negocio.Rol rol = new MercadoEnvio.Negocio.Rol();
-
+        private string RolActual;
         public Modificar_Rol()
         {
             InitializeComponent();
@@ -33,6 +33,7 @@ namespace MercadoEnvio.Pantallas.ABM_Rol
 
         private void Cmb_Nombre_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Cargar_Habilitado_Baja(Cmb_Nombre.Text);
             Cargar_Chk_FuncionalidadesxRol(chBoxFuncionalidades, Cmb_Nombre.Text);   
         }
 
@@ -44,7 +45,15 @@ namespace MercadoEnvio.Pantallas.ABM_Rol
             {
                 unChBox.SetItemChecked(unChBox.Items.IndexOf(funcionalidad[1].ToString()), true);
             }
+            RolActual = nombre;
         }
+
+        protected void Cargar_Habilitado_Baja(string nombre)
+        {
+            Chk_Baja.Checked = rol.baja(nombre);
+            Chk_Inhabilitado.Checked = rol.habilitado(nombre);
+        }
+          
 
         protected void limpiar_Controles()
         {
@@ -58,8 +67,12 @@ namespace MercadoEnvio.Pantallas.ABM_Rol
         {
             for (int i = 0; i < chBoxFuncionalidades.Items.Count; i++)
             {
-               rol.bajaFuncionalidadxRol(Cmb_Nombre.Text, chBoxFuncionalidades.Items[i].ToString());
+            
+                rol.bajaFuncionalidadxRol(Cmb_Nombre.Text, chBoxFuncionalidades.Items[i].ToString());
             }
+
+            rol.modificacion(RolActual, Cmb_Nombre.Text, Chk_Inhabilitado.Checked, Chk_Baja.Checked);
+
             foreach (string check in chBoxFuncionalidades.CheckedItems)
             {
                 rol.altaFuncionalidadxRol(Cmb_Nombre.Text, check);

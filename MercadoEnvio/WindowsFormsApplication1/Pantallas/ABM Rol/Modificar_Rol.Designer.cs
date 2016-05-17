@@ -34,6 +34,8 @@
             this.chBoxFuncionalidades = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Cmb_Nombre = new System.Windows.Forms.ComboBox();
+            this.Chk_Baja = new System.Windows.Forms.CheckBox();
+            this.Chk_Inhabilitado = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +84,7 @@
             "9. Calificar al Vendedor",
             "10. Consulta de facturas realizadas al vendedor",
             "11. Listado Estadístico"});
-            this.chBoxFuncionalidades.Location = new System.Drawing.Point(15, 70);
+            this.chBoxFuncionalidades.Location = new System.Drawing.Point(15, 80);
             this.chBoxFuncionalidades.Name = "chBoxFuncionalidades";
             this.chBoxFuncionalidades.Size = new System.Drawing.Size(321, 184);
             this.chBoxFuncionalidades.TabIndex = 8;
@@ -105,11 +107,35 @@
             this.Cmb_Nombre.TabIndex = 10;
             this.Cmb_Nombre.SelectedIndexChanged += new System.EventHandler(this.Cmb_Nombre_SelectedIndexChanged);
             // 
+            // Chk_Baja
+            // 
+            this.Chk_Baja.AutoSize = true;
+            this.Chk_Baja.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chk_Baja.Location = new System.Drawing.Point(355, 178);
+            this.Chk_Baja.Name = "Chk_Baja";
+            this.Chk_Baja.Size = new System.Drawing.Size(55, 21);
+            this.Chk_Baja.TabIndex = 11;
+            this.Chk_Baja.Text = "Baja";
+            this.Chk_Baja.UseVisualStyleBackColor = true;
+            // 
+            // Chk_Inhabilitado
+            // 
+            this.Chk_Inhabilitado.AutoSize = true;
+            this.Chk_Inhabilitado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Chk_Inhabilitado.Location = new System.Drawing.Point(355, 151);
+            this.Chk_Inhabilitado.Name = "Chk_Inhabilitado";
+            this.Chk_Inhabilitado.Size = new System.Drawing.Size(88, 21);
+            this.Chk_Inhabilitado.TabIndex = 12;
+            this.Chk_Inhabilitado.Text = "habilitado";
+            this.Chk_Inhabilitado.UseVisualStyleBackColor = true;
+            // 
             // Modificar_Rol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 270);
+            this.Controls.Add(this.Chk_Inhabilitado);
+            this.Controls.Add(this.Chk_Baja);
             this.Controls.Add(this.Cmb_Nombre);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chBoxFuncionalidades);
@@ -130,5 +156,7 @@
         private System.Windows.Forms.CheckedListBox chBoxFuncionalidades;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox Cmb_Nombre;
+        private System.Windows.Forms.CheckBox Chk_Baja;
+        private System.Windows.Forms.CheckBox Chk_Inhabilitado;
     }
 }
